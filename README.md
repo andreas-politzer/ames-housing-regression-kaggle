@@ -38,6 +38,8 @@ Three notebooks, run in order:
 | Dropping known GrLivArea outliers (Id 524/1299) | Gate failed on paired CV — kept in training (test set contains a similar case, Id 2550) |
 | Log-transforming skewed input features | Clear win (Δ0.0145 RMSLE, 5/5 folds) — the single biggest lever found |
 | Blending Lasso + HistGB | Passed gate cleanly on the improved features; beat both individual models on the public leaderboard |
+| Stacking (RidgeCV meta-model, Lasso + HistGB + ExtraTrees) | Did not beat the 50/50 blend (Δ −0.0029, 2/5 folds) — not submitted |
+| Stacking (Lasso + HistGB, non-negative linear meta-model) | Meta-model learned weights ≈ 0.51 / 0.50, i.e. the manual blend; Δ −0.0046, 2/5 folds — not submitted |
 
 ## Submissions
 
