@@ -3,8 +3,8 @@
 Kaggle "Getting Started" competition: predicting Ames, Iowa house sale prices
 from 79 features. Evaluated on RMSLE (log-space RMSE).
 
-**Best public leaderboard RMSLE: 0.12196**
-*(rank 473 of 3,769 participants at the time of submission)*
+**Best public leaderboard RMSLE: 0.12030**
+*(rank 274 at the time of submission)*
 
 ## A note on the leaderboard
 
@@ -40,6 +40,8 @@ Three notebooks, run in order:
 | Blending Lasso + HistGB | Passed gate cleanly on the improved features; beat both individual models on the public leaderboard |
 | Stacking (RidgeCV meta-model, Lasso + HistGB + ExtraTrees) | Did not beat the 50/50 blend (Δ −0.0029, 2/5 folds) — not submitted |
 | Stacking (Lasso + HistGB, non-negative linear meta-model) | Meta-model learned weights ≈ 0.51 / 0.50, i.e. the manual blend; Δ −0.0046, 2/5 folds — not submitted |
+| XGBoost (shallow trees) as a single model | Beat tuned HistGB (Δ0.0056, 5/5 folds); parameters fixed before evaluation |
+| Blend XGBoost + Lasso | Narrowly missed the gate vs. previous blend (Δ0.0026 < 0.003, 5/5 folds); submitted as an exploratory attempt, improved the public score |
 
 ## Submissions
 
@@ -49,7 +51,8 @@ Three notebooks, run in order:
 | 2 | HistGradientBoostingRegressor (tuned) | 0.1335 | 0.1088 | 0.13107 |
 | 3 | Blend 0.7×HistGB + 0.3×Lasso | — | — | 0.12526 |
 | 4 | Lasso + log-transformed skewed features | 0.1351 (Δ0.0145, 5/5 folds) | — | 0.12373 |
-| 5 | 0.5×HistGB + 0.5×Lasso on the improved feature pipeline | Δ0.0054, 4/5 folds | — | **0.12196** |
+| 5 | 0.5×HistGB + 0.5×Lasso on the improved feature pipeline | Δ0.0054, 4/5 folds | — | 0.12196 |
+| 6 | 0.5×XGBoost + 0.5×Lasso on the improved feature pipeline | Δ0.0026, 5/5 folds (gate narrowly missed) | — | **0.12030** |
 
 ## Data
 
